@@ -1,0 +1,54 @@
+:root {
+  --paper: #F6F7F4;
+  --surface: #FFFFFF;
+  --ink: #1C2A24;
+  --line: #DDE3DC;
+  --brand: #0F5D46;
+  --brass: #8C6A1F;
+  --hot: #B23A2E;
+  --hot-bg: #F9E8E5;
+  --warm: #A86A0B;
+  --warm-bg: #F8F0DC;
+  --cold: #2F5D8A;
+  --cold-bg: #E4ECF6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  margin: 0;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+a {
+  color: var(--brand);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none;
+    transition: none;
+  }
+}
