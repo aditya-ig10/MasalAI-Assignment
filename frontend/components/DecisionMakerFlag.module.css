@@ -1,44 +1,45 @@
 .panel {
-  background: var(--ink);
-  color: var(--paper);
-  border-left: 6px solid var(--brass);
-  border-radius: 8px;
-  padding: 16px;
-  margin-top: 16px;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-left: 2px solid var(--ink);
+  padding: 14px 16px;
+  margin-top: 10px;
+  font-size: 12.5px;
 }
 
 .panel h2 {
   margin: 0 0 8px;
-  font-size: 18px;
-  color: var(--paper);
+  font-size: 20px;
 }
 
 .panel blockquote {
   margin: 0 0 8px;
   padding-left: 12px;
-  border-left: 3px solid var(--brass);
+  border-left: 1px solid var(--rule);
   font-style: italic;
+  color: var(--ink2);
 }
 
 .panel p {
-  font-size: 14px;
+  font-size: 12.5px;
+  margin: 6px 0;
 }
 
 .panel button {
-  background: var(--brass);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
+  background: var(--ink);
+  color: var(--white);
+  border: 1px solid var(--ink);
   padding: 8px 16px;
-  font-size: 14px;
-  font-weight: 700;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
 .dialog {
-  margin-top: 12px;
-  border: 1px solid var(--brass);
-  border-radius: 6px;
+  margin-top: 10px;
+  border: 1px solid var(--rule);
   padding: 12px;
 }
 
@@ -49,6 +50,5 @@
 }
 
 .confirmed {
-  font-weight: 700;
-  color: var(--paper);
+  font-weight: 400;
 }
