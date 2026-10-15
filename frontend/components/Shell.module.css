@@ -1,0 +1,38 @@
+.header {
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.wordmark {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 20px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 16px;
+}
+
+.nav a {
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  margin-top: 32px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  color: #5a6b62;
+  font-size: 14px;
+}
