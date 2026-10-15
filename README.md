@@ -124,6 +124,9 @@ Copy `.shared.env` to `.env` for local runs. Never commit `.env`.
 
 ## Known limitations
 
+- Call transcription does not work on the deployed site. The Render free plan
+  has limited CPU and transcription times out there. Run the backend locally
+  (`uvicorn app.main:app --reload --port 8011`) to use the Calls page.
 - Live property search takes one to three minutes on a cold query while Apify
   actors run. Repeats are instant from the store.
 - Actor coverage varies by city. Obscure localities can return zero rows, in
