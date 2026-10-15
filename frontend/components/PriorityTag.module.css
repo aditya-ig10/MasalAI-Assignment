@@ -1,0 +1,22 @@
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+.hot {
+  color: var(--hot);
+  background: var(--hot-bg);
+}
+
+.warm {
+  color: var(--warm);
+  background: var(--warm-bg);
+}
+
+.cold {
+  color: var(--cold);
+  background: var(--cold-bg);
+}
