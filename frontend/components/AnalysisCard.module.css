@@ -1,0 +1,46 @@
+.grid {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.block {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.block h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.block p,
+.block ul,
+.block blockquote {
+  margin: 0;
+  font-size: 14px;
+}
+
+.block ul {
+  padding-left: 20px;
+}
+
+.block blockquote {
+  border-left: 3px solid var(--brand);
+  padding-left: 12px;
+}
+
+.pending {
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  padding: 16px;
+}
