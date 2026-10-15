@@ -146,18 +146,22 @@ render.yaml         Render blueprint (backend plus frontend)
 .shared.env         Template of required env vars (no secrets)
 ```
 
-## Deploy on Render
+## Deploy on Render (one service)
 
-The repo ships a `render.yaml` blueprint that creates both services.
+The repo ships a `render.yaml` blueprint that deploys backend and frontend as
+a single Render web service. `build.sh` installs Python deps, fetches Node,
+and builds Next.js. `server.py` then runs both processes: Next.js serves
+public traffic on `$PORT` and FastAPI listens internally, reachable by the
+browser through the `/live` prefix.
 
-1. Push this branch to GitHub.
-2. In Render, New > Blueprint, point it at the repo.
-3. Fill in the secret env vars (`GROQ_API_KEY`, `GEMINI_API_KEY`,
-   `APIFY_API_TOKEN`, Firebase values) when prompted.
-4. Set the backend `FRONTEND_URL` to the frontend service URL, and the
-   frontend `NEXT_PUBLIC_BACKEND_URL` to the backend service URL, then redeploy
-   both once so each knows the other.
+Manual settings if you skip the blueprint:
 
-Note: `NEXT_PUBLIC_*` values are baked in at build time, so changing them
-requires a rebuild. Firestore rules in `firestore.rules` are open for
-development. Tighten them before any production use.
+- **Root Directory:** repo root (leave empty)
+- **Runtime:** Python 3
+- **Build Command:** `bash build.sh`
+- **Start Command:** `python server.py`
+- **Health Check Path:** `/`
+
+Set `FRONTEND_URL` to the service URL for CORS. Everything else is the same
+env table as local runs. `NEXT_PUBLIC_*` values are baked in at build time,
+so changing them needs a rebuild.
