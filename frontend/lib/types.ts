@@ -35,9 +35,49 @@ export interface Lead extends LeadIn {
   created_at: string;
   analysis: Analysis | null;
   analysis_error: string | null;
+  origin?: string;
 }
 
 export interface ChatEntry {
   role: "user" | "assistant";
   content: string;
+}
+
+export type TranscriptActionKind =
+  | "create_lead"
+  | "schedule_visit"
+  | "send_followup"
+  | "mark_cold"
+  | "needs_review";
+
+export interface TranscriptSuggestion {
+  id: string;
+  label: string;
+  description: string;
+  kind: TranscriptActionKind;
+}
+
+export interface TranscriptAnalysis {
+  summary: string;
+  intent: Intent;
+  priority: Priority;
+  priority_reason: string;
+  requirements: string[];
+  objections: string[];
+  next_action: string;
+  suggested_response: string;
+  suggested_lead: Record<string, string | number>;
+  suggestions: TranscriptSuggestion[];
+}
+
+export interface SalesTranscript {
+  id: string;
+  filename: string;
+  created_at: string;
+  transcript: string;
+  analysis: TranscriptAnalysis | null;
+  analysis_error: string | null;
+  chosen_action: string | null;
+  action_note: string | null;
+  lead_id: string | null;
 }
