@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="300" viewBox="0 0 860 300" font-family="sans-serif">
+  <rect x="0" y="0" width="860" height="300" rx="12" fill="#fafaf8"/>
+  <rect x="0" y="0" width="860" height="300" rx="12" fill="none" stroke="#e0dfd9" stroke-width="2"/>
+
+  <rect x="24" y="110" width="130" height="80" rx="8" fill="#ffffff" stroke="#111110" stroke-width="2"/>
+  <text x="89" y="140" text-anchor="middle" font-size="14" font-weight="bold" fill="#111110">Browser</text>
+  <text x="89" y="160" text-anchor="middle" font-size="11" fill="#55534e">Next.js UI</text>
+
+  <rect x="204" y="110" width="150" height="80" rx="8" fill="#ffffff" stroke="#111110" stroke-width="2"/>
+  <text x="279" y="140" text-anchor="middle" font-size="14" font-weight="bold" fill="#111110">Frontend</text>
+  <text x="279" y="160" text-anchor="middle" font-size="11" fill="#55534e">Next 15 + Recharts</text>
+
+  <rect x="404" y="110" width="150" height="80" rx="8" fill="#111110"/>
+  <text x="479" y="140" text-anchor="middle" font-size="14" font-weight="bold" fill="#fafaf8">Backend</text>
+  <text x="479" y="160" text-anchor="middle" font-size="11" fill="#c4c4be">FastAPI + pytest</text>
+
+  <line x1="154" y1="150" x2="204" y2="150" stroke="#111110" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="354" y1="150" x2="404" y2="150" stroke="#111110" stroke-width="2" marker-end="url(#arr)"/>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8" fill="none" stroke="#111110" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <rect x="604" y="24" width="232" height="56" rx="8" fill="#ffffff" stroke="#e03131" stroke-width="2"/>
+  <text x="720" y="48" text-anchor="middle" font-size="13" font-weight="bold" fill="#111110">Groq / Gemini</text>
+  <text x="720" y="66" text-anchor="middle" font-size="11" fill="#55534e">analysis + chat</text>
+
+  <rect x="604" y="96" width="232" height="56" rx="8" fill="#ffffff" stroke="#e8590c" stroke-width="2"/>
+  <text x="720" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="#111110">Apify actors</text>
+  <text x="720" y="138" text-anchor="middle" font-size="11" fill="#55534e">99acres + MagicBricks</text>
+
+  <rect x="604" y="168" width="232" height="56" rx="8" fill="#ffffff" stroke="#228be6" stroke-width="2"/>
+  <text x="720" y="192" text-anchor="middle" font-size="13" font-weight="bold" fill="#111110">Firestore</text>
+  <text x="720" y="210" text-anchor="middle" font-size="11" fill="#55534e">durable lead store</text>
+
+  <rect x="604" y="240" width="232" height="36" rx="8" fill="#ffffff" stroke="#888884" stroke-width="2"/>
+  <text x="720" y="263" text-anchor="middle" font-size="11" fill="#55534e">Render: backend + frontend services</text>
+
+  <line x1="554" y1="130" x2="604" y2="52" stroke="#111110" stroke-width="1.5"/>
+  <line x1="554" y1="150" x2="604" y2="124" stroke="#111110" stroke-width="1.5"/>
+  <line x1="554" y1="170" x2="604" y2="196" stroke="#111110" stroke-width="1.5"/>
+</svg>

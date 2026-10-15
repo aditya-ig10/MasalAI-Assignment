@@ -1,1 +1,27 @@
+# env and secrets (copy .shared.env to .env locally, never commit values)
+.env
+.env.local
+
+# runtime state
 memory/
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+backend/.venv/
+backend/data/apify_cache.json
+
+# frontend
+frontend/node_modules/
+frontend/.next/
+frontend/.next-build/
+frontend/coverage/
+frontend/.env*.local
+frontend/tsconfig.tsbuildinfo
+frontend/next-env.d.ts
+
+# misc
+.DS_Store
+*.log
