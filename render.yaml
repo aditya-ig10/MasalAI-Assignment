@@ -10,6 +10,8 @@ services:
         value: 3.11.9
       - key: BACKEND_PORT
         value: 8000
+      # Optional: Render sets RENDER_EXTERNAL_URL automatically and the
+      # backend uses it for CORS. Set FRONTEND_URL only to override it.
       - key: FRONTEND_URL
         sync: false
       - key: GROQ_API_KEY

@@ -45,9 +45,14 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="LeadAnalyzer Backend", version="0.1.0", lifespan=lifespan)
 
+frontend_url = (
+    os.environ.get("FRONTEND_URL")
+    or os.environ.get("RENDER_EXTERNAL_URL", "http://localhost:3000")
+)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[os.environ.get("FRONTEND_URL", "http://localhost:3000")],
+    allow_origins=[frontend_url],
     allow_methods=["*"],
     allow_headers=["*"],
 )

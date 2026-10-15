@@ -162,6 +162,7 @@ Manual settings if you skip the blueprint:
 - **Start Command:** `python server.py`
 - **Health Check Path:** `/`
 
-Set `FRONTEND_URL` to the service URL for CORS. Everything else is the same
-env table as local runs. `NEXT_PUBLIC_*` values are baked in at build time,
-so changing them needs a rebuild.
+Set the secret env vars and deploy. You do not need to know any URL upfront:
+there is only one service, so frontend and backend share its URL, and the
+backend reads Render's own `RENDER_EXTERNAL_URL` for CORS automatically.
+Set `FRONTEND_URL` only if you ever need to override that.
