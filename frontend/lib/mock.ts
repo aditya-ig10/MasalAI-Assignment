@@ -115,17 +115,50 @@ const seeds: Lead[] = [
 
 const created: Lead[] = [];
 const chats = new Map<string, ChatEntry[]>();
+const deleted = new Set<string>();
+const updated = new Map<string, Lead>();
 
 export function seedLeads(): Lead[] {
   return JSON.parse(JSON.stringify(seeds)) as Lead[];
 }
 
+export function listMockLeads(): Lead[] {
+  const rows = [...created, ...seedLeads()].filter((l) => !deleted.has(l.id));
+  return rows.map((l) => updated.get(l.id) ?? l);
+}
+
 export function findLead(id: string): Lead | undefined {
-  return [...created, ...seedLeads()].find((l) => l.id === id);
+  if (deleted.has(id)) return undefined;
+  return updated.get(id) ?? [...created, ...seedLeads()].find((l) => l.id === id);
 }
 
 export function saveLead(lead: Lead): void {
   created.push(lead);
+}
+
+export function updateMockLead(id: string, input: LeadIn): Lead | undefined {
+  const existing = findLead(id);
+  if (!existing) return undefined;
+  const lead: Lead = {
+    ...input,
+    id,
+    created_at: existing.created_at,
+    analysis: buildMockAnalysis(input),
+    analysis_error: null,
+  };
+  updated.set(id, lead);
+  const idx = created.findIndex((l) => l.id === id);
+  if (idx >= 0) created[idx] = lead;
+  return lead;
+}
+
+export function deleteMockLead(id: string): boolean {
+  if (!findLead(id)) return false;
+  deleted.add(id);
+  updated.delete(id);
+  const idx = created.findIndex((l) => l.id === id);
+  if (idx >= 0) created.splice(idx, 1);
+  return true;
 }
 
 function firstSentenceWith(text: string, re: RegExp): string | null {
