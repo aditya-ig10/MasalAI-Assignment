@@ -5,6 +5,7 @@ import { use, useEffect, useState } from "react";
 import { ApiError, getLead } from "@/lib/api";
 import type { Lead } from "@/lib/types";
 import { AnalysisCard } from "@/components/AnalysisCard";
+import { ChatThread } from "@/components/ChatThread";
 import { DecisionMakerFlag } from "@/components/DecisionMakerFlag";
 
 export default function LeadDetail({ params }: { params: Promise<{ id: string }> }) {
@@ -38,6 +39,7 @@ export default function LeadDetail({ params }: { params: Promise<{ id: string }>
       <p>{lead.location}</p>
       <AnalysisCard analysis={lead.analysis} analysisError={lead.analysis_error} />
       {lead.analysis ? <DecisionMakerFlag influencer={lead.analysis.influencer} /> : null}
+      <ChatThread leadId={lead.id} leadName={lead.name} />
     </>
   );
 }
