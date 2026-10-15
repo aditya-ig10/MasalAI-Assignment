@@ -1,6 +1,13 @@
 import { NextResponse } from "next/server";
-import { appendChatHistory, findLead, makeMockReply } from "@/lib/mock";
+import { appendChatHistory, findLead, getChatHistory, makeMockReply } from "@/lib/mock";
 import type { ChatEntry } from "@/lib/types";
+
+export async function GET(_req: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const lead = findLead(id);
+  if (!lead) return NextResponse.json({ detail: "lead not found" }, { status: 404 });
+  return NextResponse.json({ reply: "", history: getChatHistory(lead.id) });
+}
 
 export async function POST(req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

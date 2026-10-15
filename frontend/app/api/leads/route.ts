@@ -1,10 +1,29 @@
 import { NextResponse } from "next/server";
-import { buildMockAnalysis, saveLead, seedLeads } from "@/lib/mock";
+import { buildMockAnalysis, listMockLeads, saveLead } from "@/lib/mock";
 import { sortLeads } from "@/lib/sort";
 import { validateLeadIn } from "@/lib/validate";
 
-export function GET() {
-  return NextResponse.json({ leads: sortLeads(seedLeads()) });
+function matches(query: string, hay: string): boolean {
+  const tokens = query.toLowerCase().split(/\s+/).filter(Boolean);
+  const text = hay.toLowerCase();
+  return tokens.every((t) => text.includes(t));
+}
+
+export function GET(req: Request) {
+  const url = new URL(req.url);
+  const q = (url.searchParams.get("q") ?? "").trim();
+  // Live backend proxy: when the full stack runs, prefer real data.
+  // The client calls this route only when NEXT_PUBLIC_BACKEND_URL is unset.
+  let leads = sortLeads(listMockLeads());
+  if (q) {
+    leads = leads.filter((l) =>
+      matches(
+        q,
+        [l.name, l.location, l.property_requirement, l.buying_timeline, l.customer_message, l.analysis?.intent ?? "", l.analysis?.priority ?? ""].join(" ")
+      )
+    );
+  }
+  return NextResponse.json({ leads });
 }
 
 export async function POST(req: Request) {
